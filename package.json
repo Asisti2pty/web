@@ -1,0 +1,18 @@
+{
+  "name": "asisti2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --no-source-map --watch scss/custom.scss css/bootstrap-asisti2.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "bootstrap": "^5.3.7",
+    "sass": "^1.89.2"
+  }
+  
+}

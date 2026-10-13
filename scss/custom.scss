@@ -1,0 +1,257 @@
+// Sin modo oscuro (el sitio solo usa el tema claro)
+$enable-dark-mode: false;
+
+// Tipografía principal
+$font-family-sans-serif: 'Open Sans', system-ui, sans-serif;
+$headings-font-family:   'Montserrat', system-ui, sans-serif;
+
+// Colores de marca (base)
+$primary:        #75C8F1; // Celeste (Manual de Marca)
+$secondary:      #A2D979; // Verde caña (Manual de Marca)
+$success:        #00B894; // Verde menta
+$info:           #81ECEC; // Celeste pastel
+$warning:        #FFD86B; // Amarillo suave
+$danger:         #FF6B6B; // Coral suave
+$light:          #F5F5F5; // Gris claro (Manual de Marca)
+$dark:           #1F3F6B; // Tono oscuro del azul profundo #2E5D9F (texto)
+
+// Texto y fondo
+$body-color:     $dark;
+$body-bg:        #FFFFFF;
+$headings-color: #2E5D9F; // Azul profundo (Manual de Marca)
+
+// Celeste más oscuro que $primary para cumplir contraste WCAG AA sobre fondo claro
+$link-color:        #2E5D9F;
+$link-hover-color:  #1F3F6B;
+
+// RGB variables (para focus, sombras, etc.)
+$primary-rgb:    117, 200, 241; // #75C8F1
+$secondary-rgb:  162, 217, 121; // #A2D979
+$success-rgb:    0, 184, 148;
+$info-rgb:       129, 236, 236;
+$warning-rgb:    255, 216, 107;
+$danger-rgb:     255, 107, 107;
+$light-rgb:      245, 245, 245;
+$dark-rgb:       31, 63, 107;
+
+// Colores para estados interactivos (hover, focus, active)
+$primary-hover:  darken($primary, 8%);   // #33B5E5 aprox
+$primary-active: darken($primary, 16%);  // #00A3CC aprox
+$primary-focus:    rgba(rgb($primary-rgb...), 0.4);
+
+$secondary-hover:  darken($secondary, 8%);  // #7FBF00 aprox
+$secondary-active: darken($secondary, 16%); // #669900 aprox
+$secondary-focus:  rgba(rgb($secondary-rgb...), 0.4);
+
+$success-hover:  darken($success, 8%);
+$success-active: darken($success, 16%);
+$success-focus:    rgba(rgb($success-rgb...), 0.4);
+
+$danger-hover:   darken($danger, 8%);
+$danger-active:  darken($danger, 16%);
+$danger-focus:     rgba(rgb($danger-rgb...), 0.4);
+
+// Utilidades visuales (backgrounds sutiles)
+$primary-bg-subtle:    rgba(rgb($primary-rgb...), 0.2);
+$secondary-bg-subtle:  rgba(rgb($secondary-rgb...), 0.2);
+$success-bg-subtle:    rgba(rgb($success-rgb...), 0.2);
+$info-bg-subtle:       rgba(rgb($info-rgb...), 0.2);
+$warning-bg-subtle:    rgba(rgb($warning-rgb...), 0.2);
+$danger-bg-subtle:     rgba(rgb($danger-rgb...), 0.2);
+
+// Ring color para focus visible
+$focus-ring-color:     $primary-focus;
+
+// Los botones y tabs se personalizan después del import (usan variables --bs-btn-*)
+
+// Importar Bootstrap con tus variables personalizadas
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// Botones: texto $dark sobre celeste/verde (contraste ~6:1; el blanco daba 1.9:1)
+@mixin brand-btn($bg, $hover, $active, $rgb) {
+  --bs-btn-color: #{$dark};
+  --bs-btn-bg: #{$bg};
+  --bs-btn-border-color: #{$bg};
+  --bs-btn-hover-color: #{$dark};
+  --bs-btn-hover-bg: #{$hover};
+  --bs-btn-hover-border-color: #{$hover};
+  --bs-btn-active-color: #{$dark};
+  --bs-btn-active-bg: #{$active};
+  --bs-btn-active-border-color: #{$active};
+  --bs-btn-focus-shadow-rgb: #{$rgb};
+  --bs-btn-disabled-color: #{$dark};
+  --bs-btn-disabled-bg: #{$bg};
+  --bs-btn-disabled-border-color: #{$bg};
+}
+
+.btn-primary {
+  @include brand-btn($primary, $primary-hover, $primary-active, $primary-rgb);
+}
+
+.btn-secondary {
+  @include brand-btn($secondary, $secondary-hover, $secondary-active, $secondary-rgb);
+}
+
+// Tabs nav-pills
+.nav-pills {
+  --bs-nav-pills-link-active-color: #{$dark};
+  --bs-nav-pills-link-active-bg: #{$secondary};
+
+  .nav-link {
+    color: $dark;
+
+    &:hover:not(.active) {
+      background-color: rgba($secondary, 0.15);
+    }
+
+    &:focus-visible {
+      box-shadow: 0 0 0 0.2rem $secondary-focus;
+    }
+  }
+}
+
+// Formularios personalizados con colores de marca
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+textarea,
+select {
+  border-color: $primary;
+  font-family: $font-family-sans-serif;
+
+  &:focus {
+    border-color: $primary-active;
+    box-shadow: 0 0 0 0.2rem $primary-focus;
+  }
+}
+
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
+  background-color: $secondary;
+  border-color: $secondary;
+
+  &:focus {
+    box-shadow: 0 0 0 0.2rem $secondary-focus;
+  }
+}
+
+label {
+  color: $dark;
+  font-weight: 500;
+}
+
+// Alerts
+.alert-primary {
+  background-color: $primary-bg-subtle;
+  border-color: $primary;
+  color: $dark;
+}
+
+.alert-secondary {
+  background-color: $secondary-bg-subtle;
+  border-color: $secondary;
+  color: $dark;
+}
+
+.alert-success {
+  background-color: $success-bg-subtle;
+  border-color: $success;
+  color: $dark;
+}
+
+// Badges
+.badge-primary {
+  background-color: $primary;
+  color: $dark;
+}
+
+.badge-secondary {
+  background-color: $secondary;
+  color: $dark;
+}
+
+.badge-success {
+  background-color: $success;
+  color: $dark;
+}
+
+// Cards
+.card {
+  border-color: $primary;
+  font-family: $font-family-sans-serif;
+}
+
+.card-header {
+  background-color: $primary-bg-subtle;
+  color: $dark;
+}
+
+.card-body {
+  background-color: $light;
+  color: $dark;
+}
+
+// Botones outline
+.btn-outline-primary {
+  color: $primary;
+  border-color: $primary;
+
+  &:hover {
+    background-color: $primary;
+    color: $dark;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.25rem $primary-focus;
+  }
+
+  &:active {
+    background-color: $primary-active;
+  }
+}
+
+.btn-outline-secondary {
+  color: $secondary;
+  border-color: $secondary;
+
+  &:hover {
+    background-color: $secondary;
+    color: $dark;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.25rem $secondary-focus;
+  }
+
+  &:active {
+    background-color: $secondary-active;
+  }
+}
+
+// Barras de progreso
+.progress-bar {
+  background-color: $primary;
+}
+
+// Dropdowns
+.dropdown-menu {
+  background-color: $light;
+  border: 1px solid $primary;
+  font-family: $font-family-sans-serif;
+}
+
+.dropdown-item {
+  color: $dark;
+
+  &:hover {
+    background-color: $primary-bg-subtle;
+    color: $dark;
+  }
+
+  &.active {
+    background-color: $secondary;
+    color: $dark;
+  }
+}

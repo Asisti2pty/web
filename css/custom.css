@@ -1,0 +1,649 @@
+/* ==========================================================
+   Capa de marca Asisti2 (Manual de Marca v1.0)
+   Celeste #75C8F1 · Verde caña #A2D979 · Azul profundo #2E5D9F
+   Blanco #FFFFFF · Gris claro #F5F5F5
+   Montserrat (títulos) · Open Sans (texto)
+   Se aplica aquí para no tener que recompilar el Sass; los mismos
+   valores están en scss/custom.scss para la próxima compilación.
+   ========================================================== */
+:root {
+  --a2-celeste: #75C8F1;
+  --a2-verde: #A2D979;
+  --a2-azul: #2E5D9F;
+  --a2-azul-oscuro: #1F3F6B; /* tono oscuro del azul profundo, para texto largo y pie */
+  --a2-gris: #F5F5F5;
+
+  --bs-primary: var(--a2-celeste);
+  --bs-primary-rgb: 117, 200, 241;
+  --bs-secondary: var(--a2-verde);
+  --bs-secondary-rgb: 162, 217, 121;
+  --bs-dark: var(--a2-azul-oscuro);
+  --bs-dark-rgb: 31, 63, 107;
+  --bs-light: var(--a2-gris);
+  --bs-light-rgb: 245, 245, 245;
+  --bs-primary-bg-subtle: rgba(117, 200, 241, 0.2);
+  --bs-secondary-bg-subtle: rgba(162, 217, 121, 0.25);
+
+  --bs-font-sans-serif: "Open Sans", system-ui, sans-serif;
+  --bs-body-font-family: var(--bs-font-sans-serif);
+  --bs-body-color: var(--a2-azul-oscuro);
+  --bs-body-color-rgb: 31, 63, 107;
+  --bs-body-bg: #FFFFFF;
+  --bs-secondary-color: rgba(31, 63, 107, 0.75);
+  --bs-heading-color: var(--a2-azul);
+  --bs-link-color: var(--a2-azul);
+  --bs-link-color-rgb: 46, 93, 159;
+  --bs-link-hover-color: var(--a2-azul-oscuro);
+  --bs-link-hover-color-rgb: 31, 63, 107;
+  --bs-focus-ring-color: rgba(117, 200, 241, 0.4);
+}
+
+body {
+  font-family: var(--bs-font-sans-serif);
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6,
+.display-1, .display-2, .display-3, .display-4, .display-5, .display-6,
+.navbar, .btn, .nav-pills .nav-link {
+  font-family: "Montserrat", system-ui, sans-serif;
+}
+h1, h2, h3, .h1, .h2, .h3,
+.display-1, .display-2, .display-3, .display-4, .display-5, .display-6 {
+  font-weight: 700;
+}
+
+/* Logotipo: isotipo + "Asisti2" con el 2 destacado en celeste */
+.brand-word {
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--a2-azul);
+  letter-spacing: -0.01em;
+}
+.brand-word span {
+  color: var(--a2-celeste);
+}
+.brand-word-dark {
+  color: var(--a2-verde);
+  vertical-align: middle;
+}
+
+/* Botones (texto azul oscuro sobre celeste/verde: contraste AA) */
+.btn-primary {
+  --bs-btn-color: var(--a2-azul-oscuro);
+  --bs-btn-bg: var(--a2-celeste);
+  --bs-btn-border-color: var(--a2-celeste);
+  --bs-btn-hover-color: var(--a2-azul-oscuro);
+  --bs-btn-hover-bg: #5BBDEE;
+  --bs-btn-hover-border-color: #5BBDEE;
+  --bs-btn-active-color: var(--a2-azul-oscuro);
+  --bs-btn-active-bg: #43B2EA;
+  --bs-btn-active-border-color: #43B2EA;
+  --bs-btn-focus-shadow-rgb: 117, 200, 241;
+  --bs-btn-disabled-color: var(--a2-azul-oscuro);
+  --bs-btn-disabled-bg: var(--a2-celeste);
+  --bs-btn-disabled-border-color: var(--a2-celeste);
+}
+.btn-secondary {
+  --bs-btn-color: var(--a2-azul-oscuro);
+  --bs-btn-bg: var(--a2-verde);
+  --bs-btn-border-color: var(--a2-verde);
+  --bs-btn-hover-color: var(--a2-azul-oscuro);
+  --bs-btn-hover-bg: #8FCF60;
+  --bs-btn-hover-border-color: #8FCF60;
+  --bs-btn-active-color: var(--a2-azul-oscuro);
+  --bs-btn-active-bg: #7CC547;
+  --bs-btn-active-border-color: #7CC547;
+  --bs-btn-focus-shadow-rgb: 162, 217, 121;
+  --bs-btn-disabled-color: var(--a2-azul-oscuro);
+  --bs-btn-disabled-bg: var(--a2-verde);
+  --bs-btn-disabled-border-color: var(--a2-verde);
+}
+
+/* Pestañas */
+.nav-pills {
+  --bs-nav-pills-link-active-color: var(--a2-azul-oscuro);
+  --bs-nav-pills-link-active-bg: var(--a2-verde);
+}
+.nav-pills .nav-link {
+  color: var(--a2-azul-oscuro);
+}
+.nav-pills .nav-link:hover:not(.active) {
+  background-color: rgba(162, 217, 121, 0.15);
+}
+
+/* Formularios */
+input[type="text"], input[type="email"], input[type="tel"], input[type="password"], textarea, select {
+  border-color: var(--a2-celeste);
+}
+input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, input[type="password"]:focus, textarea:focus, select:focus {
+  border-color: #43B2EA;
+  box-shadow: 0 0 0 0.2rem rgba(117, 200, 241, 0.4);
+}
+label {
+  color: var(--a2-azul-oscuro);
+}
+
+/* Fondos de sección */
+.card-body {
+  background-color: transparent;
+  color: var(--a2-azul-oscuro);
+}
+
+/* Hero */
+.hero-image {
+  background-image: linear-gradient(rgba(31, 63, 107, 0.5), rgba(31, 63, 107, 0.5)), url("../assets/images/hero-image.jpg");
+  min-height: 80vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  margin-top: 4.75rem;
+}
+
+/* Cards */
+.card {
+  background: var(--bs-light);
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+.card-body .card-icon {
+  display: block;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Navbar */
+.navbar-nav {
+  gap: 0.5rem;
+}
+.navbar-nav .nav-link {
+  padding: 0.75rem 1rem;
+  color: var(--bs-dark);
+  font-weight: 500;
+  transition: background-color 0.2s, color 0.2s;
+}
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus,
+.navbar-nav .nav-link.active {
+  background-color: var(--bs-secondary-bg-subtle);
+  color: var(--bs-dark);
+  border-radius: 0.375rem;
+}
+
+@media (max-width: 1199.98px) {
+  .navbar-nav .nav-link {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    max-width: 200px;
+    margin-inline: auto;
+  }
+  .navbar-nav .nav-cta {
+    margin: 0.75rem auto 0.5rem;
+  }
+  .navbar-nav .nav-link.active {
+    border-bottom: 2px solid var(--bs-secondary);
+    font-weight: 600;
+  }
+}
+
+/* ===== Contenido (paso 2) ===== */
+
+/* Menú: botón de cotización */
+.navbar-nav .nav-cta {
+  padding: 0.6rem 1.1rem;
+  color: var(--a2-azul-oscuro);
+}
+
+/* Portada */
+.hero-inner {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  padding-block: 4rem;
+}
+.hero-text {
+  max-width: 640px;
+}
+.hero-eyebrow {
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  color: var(--a2-celeste);
+  margin-bottom: 0.75rem;
+}
+.hero-lead {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 1.15rem;
+  margin-top: 1.25rem;
+}
+.hero-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin-top: 2rem;
+  color: #fff;
+  font-size: 0.95rem;
+}
+.hero-facts i {
+  color: var(--a2-verde);
+  margin-right: 0.35rem;
+}
+
+/* Etiqueta sobre los títulos de sección */
+.section-eyebrow {
+  color: var(--a2-azul);
+  letter-spacing: 0.08em;
+}
+
+/* Por qué Asisti2 */
+.value-item i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: var(--bs-secondary-bg-subtle);
+  color: var(--a2-azul);
+  font-size: 1.35rem;
+  margin-bottom: 1rem;
+}
+
+/* Productos estrella */
+.card-star {
+  background: #fff;
+  border: 1px solid rgba(117, 200, 241, 0.6);
+  box-shadow: 0 4px 16px rgba(31, 63, 107, 0.06);
+}
+.card-star,
+.card-photo {
+  overflow: hidden;
+}
+.card-star .card-img-top,
+.card-photo .card-img-top {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+.card-star .card-icon {
+  font-size: 2rem;
+  color: var(--a2-azul);
+}
+.star-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  background: var(--bs-primary-bg-subtle);
+  color: var(--a2-azul);
+  margin-bottom: 1rem;
+}
+.check-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+.check-list li {
+  position: relative;
+  padding-left: 1.6rem;
+  margin-bottom: 0.4rem;
+}
+.check-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #6BAF3D;
+  font-weight: bold;
+}
+
+/* Complementos */
+.card .card-icon {
+  color: var(--a2-azul);
+}
+.icon-paw {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: currentColor;
+}
+
+/* Cómo funciona */
+.steps .step-n {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: var(--a2-verde);
+  color: var(--a2-azul-oscuro);
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.steps p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Quiénes somos */
+.mv-item {
+  background: #fff;
+  border-left: 4px solid var(--a2-verde);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+}
+.mv-item i {
+  color: var(--a2-celeste);
+}
+
+/* Contacto */
+.form-card {
+  background: #fff;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  box-shadow: 0 4px 16px rgba(31, 63, 107, 0.06);
+}
+.form-select {
+  border-color: var(--a2-celeste);
+}
+.form-check-input:checked {
+  background-color: var(--a2-verde);
+  border-color: var(--a2-verde);
+}
+.contact-photo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  margin-top: 1.5rem;
+}
+.contact-list li {
+  margin-bottom: 0.6rem;
+}
+.form-status {
+  font-size: 0.95rem;
+}
+
+/* Pie */
+.footer-links a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+}
+.footer-links a:hover {
+  color: var(--a2-verde);
+}
+.footer-links li {
+  margin-bottom: 0.4rem;
+}
+
+/* Enlaces bajo el botón de las tarjetas estrella */
+.card-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+}
+
+/* Respaldo: cifras */
+.stat {
+  background: #fff;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  height: 100%;
+  border-top: 4px solid var(--a2-celeste);
+  box-shadow: 0 4px 16px rgba(31, 63, 107, 0.05);
+}
+.stats .col:nth-child(even) .stat {
+  border-top-color: var(--a2-verde);
+}
+.stat-n {
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: var(--a2-azul);
+  margin-bottom: 0.25rem;
+  line-height: 1.1;
+}
+.stat-l {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* Filtros tipo chip */
+.zone-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-start;
+}
+@media (min-width: 992px) {
+  .zone-filter { justify-content: flex-end; }
+}
+.chip {
+  border: 1px solid var(--a2-celeste);
+  background: #fff;
+  color: var(--a2-azul-oscuro);
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+.chip:hover {
+  background: var(--bs-primary-bg-subtle);
+}
+.chip.is-active {
+  background: var(--a2-verde);
+  border-color: var(--a2-verde);
+}
+
+/* Red dental */
+.clinic {
+  border: 1px solid #E3E8EF;
+  border-left: 4px solid var(--a2-verde);
+  border-radius: 0.5rem;
+  padding: 1rem 1.25rem;
+  height: 100%;
+  background: #fff;
+}
+.clinic h3 {
+  margin-bottom: 0.4rem;
+}
+.clinic-place {
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+.clinic-place i {
+  color: var(--a2-celeste);
+  margin-right: 0.35rem;
+}
+.clinic-spec {
+  font-size: 0.85rem;
+  color: var(--bs-secondary-color);
+  margin: 0;
+}
+
+/* Cómo usar sus beneficios */
+.howto {
+  background: var(--a2-gris);
+  border-radius: 0.75rem;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+}
+.howto-icon {
+  font-size: 1.75rem;
+  color: var(--a2-azul);
+  margin-bottom: 0.75rem;
+}
+.howto ol {
+  padding-left: 1.2rem;
+  margin-bottom: 1.25rem;
+}
+.howto ol li {
+  margin-bottom: 0.4rem;
+}
+.howto-line {
+  margin: auto 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(31, 63, 107, 0.12);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.howto-line i {
+  color: var(--a2-celeste);
+  margin-right: 0.4rem;
+}
+
+/* Arme su plan */
+.form-step {
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--a2-azul);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.form-step span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  background: var(--a2-celeste);
+  color: var(--a2-azul-oscuro);
+  font-size: 0.95rem;
+}
+.plan-builder {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.6rem;
+}
+@media (max-width: 575.98px) {
+  .plan-builder { grid-template-columns: 1fr 1fr; }
+  .plan-option span { min-height: 4.5rem; font-size: 0.85rem; }
+}
+.plan-option {
+  position: relative;
+  cursor: pointer;
+  margin: 0;
+}
+.plan-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.plan-option span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  text-align: center;
+  min-height: 5.5rem;
+  padding: 0.75rem 0.5rem;
+  border: 1.5px solid #DCE3EC;
+  border-radius: 0.6rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--a2-azul-oscuro);
+  background: #fff;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+.plan-option span i {
+  font-size: 1.35rem;
+  color: var(--a2-azul);
+}
+.plan-option:hover span {
+  border-color: var(--a2-celeste);
+}
+.plan-option input:checked + span {
+  border-color: #7CC547;
+  background: rgba(162, 217, 121, 0.22);
+}
+.plan-option input:focus-visible + span {
+  outline: 3px solid rgba(117, 200, 241, 0.6);
+  outline-offset: 2px;
+}
+.plan-summary {
+  color: var(--a2-azul);
+  font-weight: 600;
+}
+
+/* Botón flotante de WhatsApp (se muestra al configurar el número en js/main.js) */
+.whatsapp-float {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 1030;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #25D366;
+  color: #fff;
+  font-size: 1.75rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+.whatsapp-float[hidden] {
+  display: none;
+}
+.whatsapp-float:hover,
+.whatsapp-float:focus {
+  color: #fff;
+  transform: scale(1.08);
+}
+
+/* Página de aviso de privacidad */
+.legal-page {
+  margin-top: 4.75rem;
+}
+.legal-page h2 {
+  color: var(--a2-azul);
+  scroll-margin-top: 6rem;
+}
+.legal-toc {
+  background: var(--a2-gris);
+  border-left: 4px solid var(--a2-verde);
+  border-radius: 0.5rem;
+  padding: 1.25rem 1.5rem;
+}
+.legal-toc ol {
+  columns: 2;
+  column-gap: 2rem;
+  margin: 0;
+  padding-left: 1.2rem;
+  font-size: 0.95rem;
+}
+@media (max-width: 575.98px) {
+  .legal-toc ol { columns: 1; }
+}
+
+/* Anclas con navbar fijo */
+section[id] {
+  scroll-margin-top: 4.75rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card { transition: none; }
+  .card:hover { transform: none; }
+}

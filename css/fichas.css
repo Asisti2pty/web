@@ -1,0 +1,195 @@
+/* Fichas de productos (pantalla e impresión en PDF) */
+.fichas-page {
+  margin-top: 4.75rem;
+  background: var(--a2-gris);
+}
+.fichas-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.fichas-index .chip {
+  text-decoration: none;
+}
+
+.ficha {
+  background: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 16px rgba(31, 63, 107, 0.06);
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+  scroll-margin-top: 6rem;
+}
+.ficha-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid var(--a2-verde);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+.ficha-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.ficha-brand .brand-word {
+  font-size: 1.35rem;
+}
+.ficha-hero {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 1.5rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.ficha-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 0.6rem;
+}
+.ficha-hero-icon {
+  grid-template-columns: 80px 1fr;
+}
+.ficha-hero-icon > i {
+  font-size: 3rem;
+  color: var(--a2-azul);
+  background: var(--bs-secondary-bg-subtle);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.ficha-tag {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--a2-azul);
+  margin-bottom: 0.25rem;
+}
+.ficha h2 {
+  font-size: 1.9rem;
+  margin-bottom: 0.5rem;
+}
+.ficha-lead {
+  margin: 0;
+  font-size: 1.05rem;
+}
+.ficha h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+}
+.ficha-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+.ficha-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.ficha .check-list {
+  margin: 0;
+  font-size: 0.95rem;
+}
+.ficha-plans {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+.ficha-plans div {
+  background: var(--bs-primary-bg-subtle);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  text-align: center;
+}
+.ficha-plans strong {
+  display: block;
+  font-family: "Montserrat", system-ui, sans-serif;
+  color: var(--a2-azul);
+}
+.ficha-plans span {
+  font-size: 0.85rem;
+}
+.ficha-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+.ficha-table th {
+  background: var(--a2-azul);
+  color: #fff;
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.55rem 0.75rem;
+  text-align: left;
+}
+.ficha-table td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #E3E8EF;
+}
+.ficha-table td:not(:first-child),
+.ficha-table th:not(:first-child) {
+  text-align: center;
+  white-space: nowrap;
+}
+.ficha-table tbody tr:nth-child(even) {
+  background: #F8FAFC;
+}
+.ficha-note {
+  font-size: 0.85rem;
+  color: var(--bs-secondary-color);
+  margin: 1.25rem 0 0;
+}
+.ficha-foot {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #E3E8EF;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--a2-azul);
+}
+
+@media (max-width: 767.98px) {
+  .ficha { padding: 1.25rem; }
+  .ficha-hero,
+  .ficha-grid,
+  .ficha-grid-3,
+  .ficha-plans { grid-template-columns: 1fr; }
+  .ficha-hero-icon { grid-template-columns: 64px 1fr; }
+  .ficha-hero-icon > i { width: 64px; height: 64px; font-size: 2.2rem; }
+  .ficha-table td:not(:first-child),
+  .ficha-table th:not(:first-child) { white-space: normal; }
+}
+
+/* Impresión / Guardar como PDF */
+@media print {
+  @page { size: A4; margin: 14mm; }
+  body { background: #fff; }
+  .no-print,
+  .whatsapp-float,
+  .ficha.print-off { display: none !important; }
+  .fichas-page { margin: 0; background: #fff; }
+  .fichas-page .container { padding: 0 !important; max-width: none; }
+  .ficha {
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    page-break-after: always;
+    break-after: page;
+  }
+  .ficha:last-of-type { page-break-after: auto; break-after: auto; }
+  .ficha-hero { grid-template-columns: 200px 1fr; }
+  .ficha-grid { grid-template-columns: 1fr 1fr; }
+  .ficha-grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .ficha-plans { grid-template-columns: repeat(3, 1fr); }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}

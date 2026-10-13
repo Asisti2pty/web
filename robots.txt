@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://asisti2pty.com/sitemap.xml
